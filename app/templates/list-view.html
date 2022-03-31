@@ -1,0 +1,171 @@
+{%extends "base.html"%} {%block content%}
+
+<div class="block hero1 my-auto"style="background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);">
+  <div class="container-fluid text-center">
+    <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="0">
+    MENU 
+    </h1>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+    <div class="maincontent">
+      <div class="container">
+        <section id="menu">
+          <div class="block menu1">
+            <div class="buttons-container">
+              <a href="#" class="button button--is-active" data-target="pizzaMenu">Main Dishes</a
+              >
+              <a href="#" class="button" data-target="coffeeMenu">Sides</a>
+              <a href="#" class="button" data-target="noodlesMenu">Drinks</a>
+            </div>
+            <!-- Start Pizza Menu -->
+<form method="POST" action="#">
+        <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
+          {%for x in menu_list%}
+          <div class="item row align-items-center">
+                <div class="col-sm-3 pr-5">
+                  <img class="product-img" src="../static/img/pizza-1.png" />
+                </div>
+                <div class="details col-sm-9">
+                  <div class="item__header">
+                    <h3 class="item__title">{{x[1]}}</h3>
+                    <span class="item__dots"></span>
+                    <span class="item__price">${{x[3]}}</span>
+                  </div>
+                  <p class="item__description">
+                    {{x[4]}}
+                  </p>
+                    <div class="number">
+	                  <span class="minus">-</span>
+                    <input type="number" name="{{x[0]}}" min="0" max="10" value="0"/>
+	                  <span class="plus">+</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+          {%endfor%}
+
+      <button class="btn btn-dark btn-round btn-block" type="submit" name="Submit" value="Go to cart">
+      To cart
+      </button>
+
+
+
+            <!-- Start Coffee Menu -->
+            <div class="menu" id="coffeeMenu">
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Cappuccino</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$4</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Iced Coffee</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$5</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Café Latte</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$3</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Espresso</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$4</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+            </div>
+            <!-- End Coffee Menu -->
+            <!-- Start Noodles Menu -->
+            <div class="menu" id="noodlesMenu">
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Chicken Noodles</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$16</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Egg Noodles</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$12</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Veg Noodles</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$10</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+              <div class="item">
+                <div class="item__header">
+                  <h3 class="item__title">Chuck Norris Noodles</h3>
+                  <span class="item__dots"></span>
+                  <span class="item__price">$20</span>
+                </div>
+                <p class="item__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                  quos harum officia eaque nobis ut.
+                </p>
+              </div>
+            </div>
+            <!-- End Noodles Menu -->
+          </div>
+          <!-- End block -->
+          <script src="../static/js/mycart.js"></script>
+          <script src="../static/js/mycart-custom.js"></script>
+        </section>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+</form>
+
+
+
+
+        {%endblock%}

@@ -1,0 +1,62 @@
+{%extends "base.html"%} {%block content%}
+
+<div class="block hero1 my-auto"style="background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);">
+  <div class="container-fluid text-center">
+    <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="0">
+    TABLE OVERVIEW
+    </h1>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="maincontent">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+
+        <article
+          class="article"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-offset="0"
+          data-aos-delay="200"
+        >
+          <form method="POST" action="#">
+            {%for x in menu_list%}
+
+            <div class="item row align-items-center">
+              <div class="details col-sm-9">
+                <div class="item__header">
+                  <h3 class="item__title">Tablenumber: {{x}}</h3>
+                </div>
+
+                {%for n in menu_list[x]%} 
+                <p class="item__description">
+                  <div style="float: right"> 
+                  <span class="minus">-</span>
+                  <input type="number" name="{{x}}, {{n[0]}}" min="0" max="{{n[5]}}" value="{{n[5]}}"/>
+                  <span class="plus">+</span>
+                  </div>
+                  {{n[1]}}
+                </p>
+                {%endfor%}
+
+              </div>
+            </div>
+
+            {%endfor%}
+            
+
+
+        <button class="btn btn-dark btn-round btn-block" type="submit" name="Submit" value="Go to cart">
+        UPDATE
+        </button>
+
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock%}

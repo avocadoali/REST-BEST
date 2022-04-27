@@ -20,6 +20,7 @@ from fetch_data import delete_items, get_distinct_table, get_menu_all, get_order
 # export FLASK_ENV=development
 
 
+
 app=Flask(__name__)
 app.secret_key = "dis is a secret key"
 
@@ -82,29 +83,18 @@ def cart():
     if request.method == 'POST':
         table_id = session["tablenumber"]
         list_cart = session["dict_cart"]
-        print("")
-        print("")
-        print("")
-        print("list_cart")
-        print(list_cart)
  
 
 
         handle_order_cart(table_id, list_cart)
         return redirect(url_for("orders"))
 
-    print("")
-    print("")
-    print("")
-    print("")
-    print(session["dict_cart"])
 
     if session["dict_cart"]:
         return render_template("cart.html", list_cart = session["dict_cart"])
     else:
         no_orders = {}
         no_orders[1] ="No orders were places"
-        print("ldskfjalsdfj")
         return render_template("cart_empty.html", list_cart = no_orders)
  
 
@@ -114,7 +104,6 @@ def orders():
         return redirect(url_for ("login"))
     table_id = session["tablenumber"]
     list = get_order_of_table(table_id)
-    print(list)
     return render_template("orders.html",  menu_list=list)
 
 
@@ -126,15 +115,11 @@ def overview():
         delete_items(og_list,dif_list)
 
     list = get_overview_orders()
-    print("")
-    print("das ist return von get_overview_orders")
-    print(list)
     return render_template("overview.html", menu_list= list)
 
 
 @app.route("/pain" , methods=['GET', 'POST'])
 def pain():
-    print("nach test")
     return render_template("pain.html",  menu_list=list)
 
 @app.route("/about")
